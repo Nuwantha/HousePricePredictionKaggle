@@ -53,11 +53,11 @@ def model_gradient_boosting_tree(Xtrain,Xtest,ytrain):
     y_train = ytrain 
     gbr = GradientBoostingRegressor(random_state=0)
     param_grid = {
-        'n_estimators': [1500],
- #       'max_features': [10,15],
-#	'max_depth': [6,8,10],
-        'learning_rate': [0.5],
-       'subsample': [0.8]
+        'n_estimators': [800,1500],
+        'max_features': [20,15],
+	    'max_depth': [8,10],
+        'learning_rate': [0.1],
+       'subsample': [1]
     }
     model = GridSearchCV(estimator=gbr, param_grid=param_grid, n_jobs=1, cv=10, scoring=RMSE)
     model.fit(X_train, y_train)
